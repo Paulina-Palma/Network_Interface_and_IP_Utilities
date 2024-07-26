@@ -1,5 +1,6 @@
-from network import extract_ip_address
 import netifaces
+import ipaddress
+from network import extract_ip_address, convert_mask, is_reachable, is_reachable2
 
 
 class NetworkInterfaces:
@@ -21,6 +22,13 @@ class NetworkInterfaces:
         return self._inter[key]
 
 
-ip = extract_ip_address() # '192.168.1.1'
+ip = extract_ip_address()
 network_interfaces = NetworkInterfaces()
-print(network_interfaces[ip])
+netmask = network_interfaces[ip]['netmask']
+netmask_as_number = convert_mask('255.255.255.0')
+
+all_addresses = ipaddress.IPv4Network(f'{ip}/{netmask_as_number}', strict=False)
+for address in all_addresses.hosts():
+    address = str(address)
+    if is_reachable2(address):
+        print(address)
