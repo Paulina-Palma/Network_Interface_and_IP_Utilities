@@ -42,7 +42,3 @@ for address in all_addresses.hosts():
     # Check if the current address is reachable with any open ports
     if is_reachable_with_ports(address_str):
         print(f"Nazwa hosta dla adresu IP {address_str}: {hostname}")
-
-# # ip_address = '192.168.0.13'  # Tutaj podaj interesujący Cię adres IP
-# hostname = get_hostname_from_ip(ip_address)
-# print(f"Nazwa hosta dla adresu IP {ip_address}: {hostname}")
