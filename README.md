@@ -10,6 +10,7 @@ This project comprises a set of Python utilities and classes designed to facilit
     -   **Functionality**:
         -   It retrieves all available network interfaces and their associated address information, including IP addresses and netmasks.
         -   Allows access to this data via dictionary-like key indexing.
+        
 2.  **Utility Functions**:
     
     -   **extract_ip_address()**: Determines the primary IP address of the system by attempting a connection to an external IP, which helps identify the default outbound interface.
